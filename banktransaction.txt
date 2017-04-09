@@ -1,0 +1,126 @@
+package banktransactions;
+import java.util.Scanner;
+public class Bankex {
+	public int number;
+
+		public int wdamount;
+		public int balance;
+		public int pinnumber;
+		int depositamt;
+		boolean valid=true;
+		Scanner sin =new Scanner(System.in);
+		public void display()
+		{
+	
+		
+		 
+		 System.out.println("enter the balance amount");
+		 balance=sin.nextInt();
+		
+		 System.out.println("enter pinnumber in four digit");
+		 pinnumber=sin.nextInt();
+		 check(pinnumber);
+		 System.out.println("what you want to do:");
+		 System.out.println("1.withdraw");
+		 System.out.println("2.Deposit");
+		 System.out.println("enter number 1 or 2");
+		 number=sin.nextInt();
+		 if(number==1)
+		 {
+			 System.out.println("withdraw");
+		 }
+		 else
+		 {
+			 System.out.println("deposit");
+		 }
+		}
+		 
+		 
+		 
+		
+		 public void withdraw() 
+		 {
+			 System.out.println("enter withdrawal amount ");
+			 wdamount=sin.nextInt();
+			 
+			  try
+			 {
+				 if(wdamount>balance)
+				 {
+					 throw new Exception("Insufficient fund");
+				 }
+			 }
+			 catch(Exception e )
+			 {
+				 System.out.println("exception occured"+e.getMessage());
+			 }
+		 }	 
+			 
+			 public void deposit()
+			 {
+				 System.out.println("enter the deposit amount");
+				 depositamt=sin.nextInt();
+				 
+			 }
+			public void check(int pin)
+			{
+				if(pin==1234)
+				{
+					System.out.println("pinnumber is valid");
+				}
+				else
+				{
+					System.out.println("pinnumber is invalid");
+				}
+			}
+		 public void pandetails(String pandetails)
+		 {
+			 
+			 System.out.println("enter pandetails");
+			 pandetails =sin.next();
+			 try{
+		 
+			  if (depositamt==100000)
+			 {
+				 throw new Exception("valid transaction with PAN details");
+				 
+				 
+			 }
+			  else 
+			  {
+				  throw new Exception("Invalid transaction without PAN details");
+			  }
+			 }
+			  catch(Exception e)
+
+			  {
+				 System.out.println("Exception occured"+e.getMessage()); 
+			  }
+			 
+		 }
+		 
+		 
+			 
+		public static void main(String[] args) 
+		 {
+			 Bankex b= new Bankex();
+			 b.display();
+			 b.withdraw();
+			 b.deposit();
+			
+			 
+			 
+		 }
+	
+		 
+	}
+			 
+			 
+			
+			 
+			 
+			 
+			 
+		 
+
+

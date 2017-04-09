@@ -1,0 +1,826 @@
+1.program to display name of highest scorer
+
+package arrayexample3;
+
+import java.util.Scanner;
+
+public class ArrayExp2 
+	{
+	String[][] database = new String[2][10];
+	int[] array = new int[10];
+	public int temp = 0;
+	public int highest = 0;
+	public void acceptStdName()
+	{
+			Scanner input;
+			System.out.println("Enter the names of the students");	
+			for(int i = 0 ; i <= 9 ; i++)
+			{
+				input = new Scanner(System.in);
+			    database[0][i]= input.next();
+			}
+	}
+	public void acceptStdMark()
+	{
+			Scanner input;
+			System.out.println("Enter the marks of the students in the same order as the names you entered");	
+			for(int i = 0 ; i <= 9 ; i++)
+			{
+				input = new Scanner(System.in);
+				database[1][i]= input.next();
+				array[i] = Integer.parseInt(database[1][i]);
+			}
+	}
+	public void higestMark()
+	{	
+		for(int i = 0; i <= 9 ; i++)
+		{
+				if(array[i] > highest)
+				{  
+					 temp = i;
+					 highest = array [i];
+				}
+				
+		}
+	}
+	
+	public void topStudent()
+	{
+		System.out.println(database[0][temp]+" scored the highest ");
+		System.out.println("His mark was "+database[1][temp]);
+	}
+	public static void main(String[] args) 
+	{
+		ArrayExp2 obj = new ArrayExp2();
+		obj.acceptStdName();
+		obj.acceptStdMark();
+		obj.higestMark();
+		obj.topStudent();
+
+	}
+
+}
+
+2.Ascending order program
+
+package arrayex1;
+import java.util.Scanner;
+
+public class Ascending {
+	 private int min;
+	int [] numbers;
+
+
+
+
+public  void accept(){
+
+ numbers=new int[10];
+Scanner sin=new Scanner(System.in);
+for(int i=0;i<10;i++)
+{
+	
+System.out.println("enter the numbers");
+numbers[i]=sin.nextInt();
+}
+min=numbers[0];
+for(int i=0;i<10;i++)
+{
+for(int j=i+1;j<10;j++)
+{
+	
+if(numbers[i]>numbers[j])
+{
+min=numbers[i];
+numbers[i]=numbers[j];
+numbers[j]=min;
+}
+}
+}
+}
+
+public  void display()
+{
+	for(int i=0;i<10;i++)
+	{
+System.out.println("ascending order is " +numbers[i]);
+}
+}
+public static void main(String[] args)
+{
+Ascending as =new Ascending();
+        as.accept();
+        as.display();
+}
+
+}
+
+3.program to display sum and average of 10 numbers
+
+package arrayex1;
+import java.util.Scanner;
+
+
+public class Sumaverage {
+	
+	               int[] numbers;
+			int total=0;
+			int average=0;
+			public void accept()
+			{
+					numbers = new int[10];
+					Scanner sin=new Scanner(System.in);
+					
+							
+					for(int i = 0 ; i <= 9 ; i++)
+					{
+						System.out.println("Enter the set of numbers");
+						
+					    numbers[i]= sin.nextInt();
+					}
+			}
+			
+			
+			public void total ()
+			{
+				for(int i = 0; i<10 ; i++)
+				{
+					total = total + numbers[i];	
+				}
+				average = total/10;
+			}
+			
+
+			
+			public void display()
+			{
+				System.out.println("The total of the set of numbers is  "+total);
+				System.out.println("The average of the set of numbers is  "+average);
+			}
+
+	public static void main(String[] args) 
+		{
+			Sumaverage sobj = new Sumaverage();
+			sobj.accept();
+			sobj.total();
+			sobj.display();
+		}
+	}
+
+4. Salary of the 5 employees program
+
+package name;
+
+import java.util.Scanner;
+
+public class Maxsalary {
+	
+	
+
+		String[][] database = new String[2][5];
+		int[] array = new int[5];
+		public int temp1 = 0;
+		public int temp2 = 0;
+		public int highestsalary = 0;
+		public int lowestsalary = 0;
+		public int sum=0;
+		public int avg=0;
+		
+		
+		
+		public void acceptempName()
+		{
+				Scanner input;
+				System.out.println("Enter the names of the employees");	
+				for(int i = 0 ; i <= 4; i++)
+				{
+					input = new Scanner(System.in);
+				    database[0][i]= input.next();
+				}
+		}
+		public void acceptempsalary()
+		{
+				Scanner input;
+				System.out.println("Enter the salary of employees in the same order as the names you entered");	
+				for(int i = 0 ; i <= 4; i++)
+				{
+					input = new Scanner(System.in);
+					database[1][i]= input.next();
+					array[i] = Integer.parseInt(database[1][i]);
+				}
+		}
+		public void highestsalary()
+		{	
+			for(int i = 0; i <= 4 ; i++)
+			{
+					if(array[i] > highestsalary)
+					{  
+						 temp1 = i;
+						 highestsalary = array [i];
+					}
+					
+			}
+		}
+		
+		public void lowestsalary()
+		{	
+			for(int i = 0; i <= 4 ; i++)
+			{
+					if(array[i] > lowestsalary)
+					{  
+						 temp2 = i;
+						 lowestsalary = array [i];
+					}
+					
+			}
+		}
+		
+		public void avg()
+		{
+			for(int i = 0; i <= 4 ; i++)
+			{
+				sum=array[i];
+				avg=sum/5;
+			}
+		}
+		
+		
+		
+		
+		public void topemp()
+		{
+			System.out.println(database[0][temp1]+" is the highest ");
+			System.out.println("His salary was "+database[1][temp1]);
+		}
+		
+		public void lowemp()
+		{
+			System.out.println(database[0][temp1]+" is the lowest ");
+			System.out.println("His salary was "+database[1][temp2]);
+		}
+		
+		
+		public static void main(String[] args) 
+		{
+			Maxsalary mobj = new Maxsalary();
+			mobj.acceptempName();
+			mobj.acceptempsalary();
+			mobj.highestsalary();
+			mobj.lowestsalary();
+			mobj.avg();
+			mobj.topemp();
+			mobj.lowemp();
+		}
+			
+			
+
+		
+
+	}
+
+
+
+5.Addition of 2 Matrices program
+
+import java.util.Scanner;
+
+
+
+public class Addition
+{
+ Scanner Sin = new Scanner(System.in);
+public int[][] a=new int[3][3];
+public int[][] b=new int[3][3];
+public int[][] c=new int[3][3];
+public int i,j,m,n,m1,n2;
+ public void accept()
+ {
+
+ System.out.println("enter number of rows and columns of the first matrix:");
+
+ m=Sin.nextInt();
+ n=Sin.nextInt();
+ 
+ System.out.println("enter number of rows and columns of second matrix:");
+ m1=Sin.nextInt();
+ n2=Sin.nextInt();
+
+System.out.println("enter elements of first matrix");
+
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{
+ a[i][j]=Sin.nextInt();
+}
+}
+
+System.out.println("enter elements of second matrix");
+
+for(i=0;i<m1;i++)
+{
+for(j=0;j<n2;j++)
+{
+
+b[i][j]=Sin.nextInt();
+}
+}
+
+
+for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			c[i][j]=a[i][j]+b[i][j];
+		}
+	}
+ }
+public void display()
+{
+	System.out.println("addition of 2 matrices");
+	for(int i=0 ; i<m ; i++)
+		{
+			for(int j=0; j<n ; j++)
+				{
+					System.out.println("addition"+c[i][j]);
+				}
+		}
+}
+
+public static void main(String ar[]){
+
+Addition a=new Addition();
+a.accept();
+a.display();
+}
+
+6.Multiplication of 2 Matrices
+
+package matrix;
+
+import java.util.Scanner;
+
+public class Multiply 
+{
+              private static Scanner sin;
+
+			public static void main(String args[])
+	   {
+	      int m, n, i, j, m2, n2, k;
+	 
+	      sin = new Scanner(System.in);
+	      System.out.println("Enter the number of rows and columns of first matrix");
+	      m = sin.nextInt();
+	      n = sin.nextInt();
+	 
+	      int a[][] = new int[m][n];
+	 
+	      System.out.println("Enter the elements of first matrix");
+	 
+	      for ( i = 0 ; i< m ; i++ )
+	         for ( j= 0 ; j < n ; j++ )
+	            a[i][j] = sin.nextInt();
+	 
+	      System.out.println("Enter the number of rows and columns of second matrix");
+	      m2=sin.nextInt();
+	      n2= sin.nextInt();
+	 
+	      if ( n != m2 )
+	         System.out.println("Matrices with entered orders can't be multiplied with each other.");
+	      else
+	      {
+	         int b[][] = new int[m2][n2];
+	         int multiply[][] = new int[m][n2];
+	 
+	         System.out.println("Enter the elements of second matrix");
+	 
+	         for ( i= 0 ; i< m ; i++ )
+	            for ( j = 0 ; j < n ; j++ )
+	               b[i][j] = sin.nextInt();
+	 
+	         for ( i= 0 ; i< m ; i++ )
+	         {
+	            for ( j= 0 ; j < m2 ; j++ )
+	            {   
+	               for ( k = 0 ; k < n2 ; k++ )
+	               {
+	                  multiply[i][j] = multiply[i][j] + a[i][k]*b[k][j];
+	               }	
+		 }
+	        }
+	          
+	        {
+	         System.out.println("Product of entered matrices:-");
+	 
+	         for ( i = 0 ; i < m ; i++ )
+	         {
+	            for ( j = 0 ; j < n ; j++ )
+	              {
+			 System.out.print(multiply[i][j]+"\t");
+		      } 
+	            System.out.print("\n");
+	         }
+	        
+	         
+	        	 
+	         }
+	         }
+	      }
+	   }
+}
+
+7.Accept and display 2 matrices
+
+package matrix;
+
+import java.util.Scanner;
+
+
+
+public class Data {
+	Scanner Sin=new Scanner(System.in);
+	
+
+	 int[][] a=new int[3][3];
+	 int[][] b= new int [3][3];
+	 int[][] c= new int [3][3];
+     int i,j,m,n,m1,n2;
+ 
+	public void accept(){
+		
+		System.out.println("enter the number of rows and columns of first matrix");
+		m=Sin.nextInt();
+		n=Sin.nextInt();
+		System.out.println("enter the number of rows and columns of second matrix");
+		m1=Sin.nextInt();
+		n2=Sin.nextInt();
+		
+	System.out.println("enter elements of first matrix");
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			a[i][j]=Sin.nextInt();
+			
+			}
+		}
+	System.out.println("enter elements of second matrix");
+	for(i=0;i<m1;i++)
+	
+		for(j=0;j<n2;j++)
+		
+		b[i][j]=Sin.nextInt();
+	}
+		
+	
+	public void display(){
+		
+for(i=0;i<m;i++)
+
+for(j=0;j<n;j++)
+	System.out.println("first matrix is"+a[i][j]);
+
+
+for(i=0;i<m1;i++)
+	for(j=0;j<n2;j++)
+		System.out.println("second matrix is" +b[i][j]);
+	
+
+	}
+	public static void main(String args[]){
+		Data d=new Data();
+		d.accept();
+		d.display();
+	}
+
+		
+	}
+
+8.Exception handling loan eligibility program
+
+package name;
+import java.io.*;
+
+
+public class Empsalary {
+	
+	public void acceptsalary()
+	{
+		InputStreamReader is=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(is);
+		try
+		{
+					
+			
+	    int salary;
+		int loanamount;
+		System.out.println("enter the salary");
+		salary=Integer.parseInt(br.readLine());
+		System.out.println("enter the loan amount");
+		loanamount=Integer.parseInt(br.readLine());
+		if(salary<0)
+		{
+			throw new Exception("not eligible for loan");
+		}
+		else if(salary>10000)
+		{
+			throw new Exception("not eligible for loan of 100000");
+		}
+		else if(salary>50000)
+		{
+			throw new Exception("not eligible for loan of 500000");
+		}
+		else 
+		{
+			throw new Exception("not eligible for loan of 1000000");
+		}
+		}
+		
+			catch(Exception ex)
+			{
+				System.out.println("exception occured"+ex.getMessage());
+			}
+	}
+			
+		public static void main(String[] args){
+			Empsalary e=new Empsalary();
+			e.acceptsalary();
+		}
+	}	
+			
+			
+9.Bank transaction Program
+
+package banktransactions;
+import java.util.Scanner;
+public class Bankex {
+	
+	public int number;
+
+		public int wdamount;
+		public int balance;
+	    public int pinnumber;
+		
+		int depositamt;
+		
+		Scanner sin =new Scanner(System.in);
+	
+
+		public void display()
+		{
+	
+		
+		 
+		 System.out.println("enter the balance amount");
+		 balance=sin.nextInt();
+	
+		 System.out.println("what you want to do:");
+		 System.out.println("1.withdraw");
+		 System.out.println("2.Deposit");
+		 System.out.println("enter number 1 or 2");
+		 number=sin.nextInt();
+		 if(number==1)
+		 {
+			 System.out.println("withdraw");
+		 }
+		 else
+		 {
+			 System.out.println("deposit");
+		 }
+		}
+		 
+		 
+		 
+		
+		 public void withdraw() 
+		 
+		 {
+			 
+				 System.out.println("enter pinnumber in four digit");
+				 try
+				 {
+				 pinnumber=sin.nextInt();
+				 
+				 
+	                         check pinnumber(pin);
+		 
+				 }
+				 
+				 
+				  catch(Exception e )
+				 {
+					 System.out.println("check whether the pinnumber given is right");
+				 }
+				 System.out.println("enter withdrawal amount ");
+				 wdamount=sin.nextInt();
+				 
+				 
+				 if(wdamount>balance)
+				 {
+					 throw new Exception("Insufficient fund");
+				 }
+				 else
+				 {
+					 System.out.println("withdraw the amount");
+				 }
+			 }
+			 
+		 	 
+			 
+			 public void deposit()
+			 {
+				 System.out.println("enter pinnumber in four digit");
+				 try{
+				 pinnumber=sin.nextInt();
+				 
+				 
+	              check pinnumber(pin);
+				 }
+				 
+				  catch(Exception e )
+				 {
+					 System.out.println("check whether the pinnumber given is right");
+				 }
+				 
+				 System.out.println("enter the deposit amount");
+				 depositamt=sin.nextInt();
+				 
+			 }
+			public void check(int pin)
+			{
+				if(pin==1234)
+				{
+					System.out.println("pinnumber is valid");
+				}
+				else
+				{
+					System.out.println("pinnumber is invalid");
+				}
+			}
+		 public void pandetails(String pandetails)
+		 {
+			 if(pandetails=="AXZ328909")
+			 {
+				 System.out.println("Valid pandetails");
+			 }
+			 else
+			 {
+				 System.out.println("Invalid");
+			 }
+			
+			 try{
+		 
+			  if (depositamt>200000)
+			 {
+				 
+				  System.out.println("enter pandetails");
+					 pandetails =sin.next();
+					 System.out.println("valid transaction with pandetails");
+					 
+
+			 }
+			  
+			 }
+			  catch(Exception e)
+
+			  {
+				 System.out.println("Deposit the amount with valid pandetails"); 
+			  }
+			 
+		 }
+		 
+		 
+			 
+		public static void main(String[] args) 
+		 {
+			 Bankex b= new Bankex();
+			 b.display();
+			 b.withdraw();
+			 b.deposit();
+			
+			 
+			 
+		 }
+	
+		 
+	}
+			 
+10.Reverse of a number 
+
+package arrayex1;
+import java.util.Scanner;
+
+public class Calculator {
+	
+public void revnum()
+{
+	Scanner sin=new Scanner(System.in);
+	int number;
+	int rem;
+	int rev=0;
+	System.out.println("enter the number");
+	number=sin.nextInt();
+	while(number!=0)
+	{
+		rem=number%10;
+		rev=rev*10+rem;
+		number=number/10;
+		
+	}
+	System.out.println("reverse of a number"+rev);
+}
+public static void main(String args[])
+{
+	Calculator robj=new Calculator();
+	robj.revnum();
+	
+}
+
+}
+
+11.Menu driven program for performing arithmetic operations
+
+package arrayex1;
+import java.util.Scanner;
+
+public class Menudriven {
+	
+	 
+	
+	    public static void main(String[] args) 
+	    {
+	        int m, n, opt, add, sub, mul,div,percentage;
+	        
+	        Scanner s = new Scanner(System.in);
+	        System.out.print("Enter first number:");
+	        m = s.nextInt();
+	        System.out.print("Enter second number:");
+	        n = s.nextInt();
+	        while(true)
+	        {
+	            System.out.println("Enter 1 for addition");
+	            System.out.println("Enter 2 for subtraction");
+	            System.out.println("Enter 3 for multiplication");
+	            System.out.println("Enter 4 for division");
+	            System.out.println("Enter 5 to percentage");
+	            System.out.println("Enter 6 to exit");
+	            
+	            opt = s.nextInt();
+	            switch(opt)
+	            {
+	                case 1:
+	                add = m + n;
+	                System.out.println("Result:"+add);
+	                break;
+	 
+	                case 2:
+	                sub = m - n;
+	                System.out.println("Result:"+sub);
+	                break;
+	 
+	                case 3:
+	                mul = m * n;
+	                System.out.println("Result:"+mul);
+	                break;
+	 
+	                case 4:
+	                div = m / n;
+	                System.out.println("Result:"+div);
+	                break;    
+	 
+	                case 5:
+	                	percentage=(m/n)*100;
+	                System.out.println("Result"+percentage);
+	                
+	                case 6:
+	                   System.exit(0);
+	                
+	            }
+	        }
+	    }
+	}
+	
+			 
+			
+			 
+			 
+			 
+			 
+		 
+
+
+		
+		
+	
+
+
+
+
+
+	
+	
+	
+
+
+
+
